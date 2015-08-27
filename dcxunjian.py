@@ -1,15 +1,16 @@
-# -*- coding:utf-8 -*-
+# -*- coding:gbk -*-
 #作者sikx@dcits.com
+
 import re
-print("　　　　　　　×××××××××××××××××××××××××××××××××××××××××××××")
-print("           *           TOP系统巡检填写小助手V1             *")
-print("　　　　　　　×××××××××××××××××××××××××××××××××××××××××××××")
+print("              ******************************************")
+print("                       TOP系统巡检填写小助手V1")
+print("              ******************************************")
 print("                                                           ")
-print("本程序仅用于获取AIX系统巡检抓包中TOP系统所需填写的信息。作者sikx@dcits.com")
-print("抓包中需要有命令prtconf,ifconfig,topas,iostat,df -g,errpt,lsvg等")
 
-print("--------------------------------------------------------")
+#本程序仅用于获取AIX系统巡检抓包中TOP系统所需填写的信息。
+#抓包中需要有命令prtconf,ifconfig,topas,iostat,df -g,errpt,lsvg等
 
+print(" ")
 #log = open(name,'r')
 
 def readfile():
@@ -96,7 +97,8 @@ except:
 #get_df = re.findall(r'sort.*?(\d{1,3}%)',logt,re.S)[0]
 #get_df = re.findall(r'sort\ \-rn\ \+3(.*?)\#',logt,re.S)[0]
 get_df = re.findall(r'(df -.*?)\#',logt,re.S)[0] 
-
+print(" ")
+print(" ")
 print("本机IP是：%s"%get_ip)
 print("本机序列号是：%s"%machine_id)
 print("********************************************")
@@ -109,6 +111,9 @@ print("本机内存使用： %s"%get_memory)
 print("本机PAGING SPACE： %s"%get_pagingspace)
 print("********************************************")
 print("本机空间占用： %s"%get_df)
-#print("本机报错： %s"%get_errpt)
+print("********************************************")
+print("本机报错： %s"%get_errpt)
+
+raw_input("按Enter退出")
 
 
