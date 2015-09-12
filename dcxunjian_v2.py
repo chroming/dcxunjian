@@ -84,7 +84,8 @@ else:
 
 
 try:
-    get_topas = re.findall('(topas: *not found)')[0]
+    get_topas = re.findall(r'(topas\: *not)',logt)[0]
+    cpu = get_memory = get_pagingspace = "获取失败！"
 
 except:
 
