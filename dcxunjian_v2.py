@@ -94,7 +94,7 @@ def get_func(logt):
         get_cpu= check_func('topas.*?Kernel\ {4,10}\d.*?Idle\ {4,10}([1-9]\S*)')[0]
         cpu = 100 - float(get_cpu)
 
-        get_memory = check_func('get_topas.*?MEMORY.*?Comp\ {4,10}(\d\S*)')[0]
+        get_memory = check_func('topas.*?MEMORY.*?Comp\ {4,10}(\d\S*)')[0]
 
         get_pagingspace = check_func('topas.*?PAGING\ SPACE.*?Used\ {4,10}(\d\S*)')[0]
 
