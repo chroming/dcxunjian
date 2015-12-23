@@ -6,7 +6,7 @@
 
 import re
 print("              ******************************************")
-print("                       TOP系统巡检填写小助手V2.3")
+print("                       TOP系统巡检填写小助手V2.0")
 print("              ******************************************")
 print("                                                           ")
 
@@ -38,7 +38,7 @@ def readfile():
         return readfile()
 
 
-
+logt = readfile()
 
 def get_func(logt):
     #获取序列号
@@ -90,25 +90,13 @@ def get_func(logt):
         cpu = get_memory = get_pagingspace = "获取失败！"
     #如果有获取以下信息
     except:
-        try:
 
-            get_cpu= check_func('topas.*?Kernel\ {4,10}\d.*?Idle\ {4,10}([1-9]\S*)',logt)[0]
-            cpu = 100 - float(get_cpu)
+        get_cpu= check_func('topas.*?Kernel\ {4,10}\d.*?Idle\ {4,10}([1-9]\S*)')[0]
+        cpu = 100 - float(get_cpu)
 
-            get_memory = check_func('topas.*?MEMORY.*?Comp\ {4,10}(\d\S*)',logt)[0]
+        get_memory = check_func('topas.*?MEMORY.*?Comp\ {4,10}(\d\S*)')[0]
 
-            get_pagingspace = check_func('topas.*?PAGING\ SPACE.*?Used\ {4,10}(\d\S*)',logt)[0]
-        except:
-            cpu = get_memory = get_pagingspace = "获取失败！"
-
-    # except:
-    #
-    #     get_cpu= check_func('topas.*?Kernel\ {4,10}\d.*?Idle\ {4,10}([1-9]\S*)')[0]
-    #     cpu = 100 - float(get_cpu)
-    #
-    #     get_memory = check_func('topas.*?MEMORY.*?Comp\ {4,10}(\d\S*)')[0]
-    #
-    #     get_pagingspace = check_func('topas.*?PAGING\ SPACE.*?Used\ {4,10}(\d\S*)')[0]
+        get_pagingspace = check_func('topas.*?PAGING\ SPACE.*?Used\ {4,10}(\d\S*)')[0]
 
     get_iostat = check_func('iostat.*?tty.*?(\d\S*)\ *?(\d\S*)\ *?(\d\S*)\ *?(\d\S*)\ *?(\d\S*)\ *?(\d\S*)')[0]
 
@@ -143,5 +131,4 @@ def get_func(logt):
         logt = readfile()
         get_func(logt)
 
-logt = readfile()
 get_func(logt)
