@@ -138,8 +138,8 @@ def get_func(logt):
     print("本机空间占用： %s"%get_df)
     print("********************************************")
     print("本机报错： %s"%get_errpt)
-    Choicenum =int(raw_input('输入1继续程序，输入其他退出，请输入代码： '))
-    if Choicenum == 1:
+    Choicenum =raw_input('输入1继续程序，输入其他退出，请输入代码： ')
+    if Choicenum == str(1):
         logt = readfile()
         get_func(logt)
 
